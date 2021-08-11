@@ -12,7 +12,11 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-
+  // loading: { color: '#F37A39', height: '5px' },
+  loadingIndicator: {
+    name: 'rotating-plane',
+    color: '#F37A39',
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
@@ -24,8 +28,6 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
   ],
