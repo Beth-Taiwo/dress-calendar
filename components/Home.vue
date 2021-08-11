@@ -1,8 +1,13 @@
 <template>
-  <div class="home w-full h-full flex justify-center pt-12">
+  <div class="home w-full h-full flex justify-center pt-12 relative">
     <div class="w-6/12 h-full flex flex-col shadow-md">
       <top-menu />
       <cloth-preview />
+    </div>
+    <div class="text-right absolute" style="bottom: 18px; right: 32px">
+      <p class="text-gray-300">
+        Made with <span class="text-cared text-lg">&hearts;</span> by Bee
+      </p>
     </div>
   </div>
 </template>
