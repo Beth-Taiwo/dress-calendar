@@ -32,7 +32,7 @@ module.exports = {
         caDarkGray: '#3E2B30',
         ca: '#0F0F0F',
         cared: '#FF1515',
-        waLightRed: '#FAD0B2',
+        caTextLight: 'rgba(202,202,202,1)',
         caOffWhite: '#f9f9f9',
         transBlack: 'rgba(0, 0, 0, 0.5)',
       },

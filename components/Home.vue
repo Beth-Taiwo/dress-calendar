@@ -2,21 +2,22 @@
   <div class="home w-full h-full flex justify-center pt-12">
     <div class="w-6/12 h-full flex flex-col shadow-md">
       <top-menu />
-      <div class="bg-white h-9/10 rounded-3xl rounded-t-none">Hello</div>
+      <cloth-preview />
     </div>
   </div>
 </template>
 
 <script>
+import ClothPreview from './clothPreview.vue'
 import topMenu from './topMenu.vue'
 export default {
-  components: { topMenu },
+  components: { topMenu, ClothPreview },
 }
 </script>
 
 <style>
 .home {
-  background-image: url('~static/images/desktop bg.png');
+  background-image: url('~static/images/desktop_bg.png');
   width: 100vw;
   height: 100vh;
   background-position: center;
