@@ -12,10 +12,11 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  // loading: { color: '#F37A39', height: '5px' },
+  loading: { color: '#F37A39', height: '5px' },
   loadingIndicator: {
     name: 'rotating-plane',
     color: '#F37A39',
+    background: 'black',
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [

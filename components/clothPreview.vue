@@ -20,11 +20,15 @@
         ></i>
       </div>
     </div>
+    <!-- <slide-menu /> -->
   </div>
 </template>
 
 <script>
-export default {}
+import slideMenu from './slideMenu.vue'
+export default {
+  components: { slideMenu },
+}
 </script>
 
 <style></style>
