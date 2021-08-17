@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white h-9/10 rounded-3xl rounded-t-none px-5">
+  <div class="bg-white h-9/10 rounded-3xl rounded-t-none px-5 overflow-y-auto">
     <div class="flex justify-center p-2 my-2">
       <p
         class="p-1 px-2 bg-caGray text-xs rounded-md shadow-md text-caLightGray"
@@ -25,9 +25,8 @@
 </template>
 
 <script>
-import slideMenu from './slideMenu.vue'
 export default {
-  components: { slideMenu },
+  components: {},
 }
 </script>
 
