@@ -1,23 +1,21 @@
 <template>
-  <!-- This example requires Tailwind CSS v2.0+ -->
-  <div>
-    <div
-      class="absolute top-0 left-0 w-1/2 max-h-screen py-6 bg-white shadow-xl overflow-y-auto"
-    >
-      <div class="px-4 sm:px-6">
-        <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">
-          Panel title
-        </h2>
+  <div
+    class="absolute top-0 left-0 w-1/2 h-full py-6 bg-white shadow-xl overflow-y-auto"
+  >
+    <div class="relative h-full">
+      <div class="px-4 sm:px-6 space-y-3">
+        <button
+          class="bg-caGray p-2 text-caOffWhite rounded-md text-center w-full"
+          v-for="item in menuItems"
+          :key="item.desc"
+        >
+          <i :class="item.icon"></i> <span class="ml-2">{{ item.desc }}</span>
+        </button>
       </div>
-      <div class="mt-6 relative flex-1 px-4 sm:px-6">
-        <!-- Replace with your content -->
-        <div class="absolute inset-0 px-4 sm:px-6">
-          <div
-            class="h-full border-2 border-dashed border-gray-200"
-            aria-hidden="true"
-          ></div>
-        </div>
-        <!-- /End replace -->
+      <div class="absolute bottom-0 w-full text-center">
+        <p class="text-caGray">
+          Made with <span class="text-cared text-lg">&hearts;</span> by Bee
+        </p>
       </div>
     </div>
   </div>
@@ -27,7 +25,11 @@
 export default {
   data() {
     return {
-      open: false,
+      menuItems: [
+        { desc: 'Add New CLoth', icon: 'fas fa-plus' },
+        { desc: 'View My CLothes', icon: 'fas fa-minus' },
+        { desc: 'My Accounts Settings', icon: 'fas fa-plus' },
+      ],
     }
   },
   props: {
@@ -35,11 +37,7 @@ export default {
       type: Function,
     },
   },
-  methods: {
-    closeOpenModal() {
-      return (this.open = !this.open)
-    },
-  },
+  methods: {},
 }
 </script>
 

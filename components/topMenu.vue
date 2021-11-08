@@ -17,23 +17,27 @@
     >
       <i class="fas fa-calendar"></i>
     </div>
-    <slide-menu v-show="isMenuOpen" :openMenu="openMenu" />
+    <!-- <slide-menu v-show="isMenuOpen" :openMenu="openMenu" /> -->
   </header>
 </template>
 
 <script>
-import slideMenu from './slideMenu.vue'
+// import slideMenu from './slideMenu.vue'
 export default {
-  components: { slideMenu },
+  components: {},
+  props: {
+    isMenuOpen: Boolean,
+    openMenu: Function,
+  },
   data() {
     return {
-      isMenuOpen: false,
+      // isMenuOpen: false,
     }
   },
   methods: {
-    openMenu() {
-      this.isMenuOpen = !this.isMenuOpen
-    },
+    // openMenu() {
+    //   this.isMenuOpen = !this.isMenuOpen
+    // },
   },
 }
 </script>

@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-white h-9/10 rounded-3xl rounded-t-none px-5 overflow-y-auto">
+  <div
+    class="bg-white h-full rounded-3xl rounded-t-none px-5 overflow-y-auto relative"
+  >
     <div class="flex justify-center p-2 my-2">
       <p
         class="p-1 px-2 bg-caGray text-xs rounded-md shadow-md text-caLightGray"
@@ -20,14 +22,40 @@
         ></i>
       </div>
     </div>
-    <!-- <slide-menu /> -->
+    <transition mode="in-out" name="route">
+      <slide-menu v-show="isMenuOpen" :open-menu="openMenu" />
+    </transition>
   </div>
 </template>
 
 <script>
+import slideMenu from './slideMenu.vue'
 export default {
-  components: {},
+  components: { slideMenu },
+  props: {
+    isMenuOpen: Boolean,
+    // eslint-disable-next-line vue/require-default-prop
+    openMenu: Function,
+  },
+  data() {
+    return {}
+  },
 }
 </script>
 
-<style></style>
+<style>
+.route-enter-from {
+  opacity: 0;
+  transform: translateX(100px);
+}
+.route-enter-active {
+  transition: all 0.1s ease-in-out;
+}
+.route-leave-to {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+.route-leave-active {
+  transition: all 0.3s ease-out;
+}
+</style>
