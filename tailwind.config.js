@@ -1,5 +1,5 @@
 module.exports = {
-  purge: [
+  content: [
     './components/**/*.{vue,js}',
     './layouts/**/*.vue',
     './pages/**/*.vue',
@@ -10,8 +10,8 @@ module.exports = {
   theme: {
     extend: {
       spacing: {
-        main: "40rem"
-      }
+        main: '40rem',
+      },
     },
   },
   variants: {

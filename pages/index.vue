@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div class="w-full h-full shadow-xl rounded-2xl bg-gray-100 p-2">
+    <header class="h-[86px] bg-[#EFEFEF]">Monday 12th - Thursday 16th</header>
+  </div>
 </template>
 
 <script>

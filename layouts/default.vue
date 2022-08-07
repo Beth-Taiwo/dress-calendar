@@ -3,7 +3,7 @@
     class="w-screen h-screen py-8 items-center overflow-hidden bg-main"
     :class="isDark ? 'dark-mode' : ''"
   >
-    <div class="shadow-xl w-main h-full mx-auto rounded-2xl bg-gray-100">
+    <div class="w-main h-full mx-auto">
       <Nuxt />
     </div>
     <button
