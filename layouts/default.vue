@@ -8,7 +8,7 @@
     </div>
     <button
       class="mode-toggle-btn h-6 w-12 rounded-full bg-gray-600 border-4 border-gray-800 fixed bottom-0 right-0 transform -translate-x-10 -translate-y-5 transition-transform duration-200 ease-in-out"
-      :class="`p-0.5 ${isDark ? 'is-on' : ''}`"
+      :class="`${isDark ? 'is-on' : ''}`"
       @click="toggle"
     ></button>
   </div>
