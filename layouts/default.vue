@@ -1,11 +1,33 @@
 <template>
-  <div class="w-screen h-screen py-8 items-center overflow-hidden bg-main">
+  <div
+    class="w-screen h-screen py-8 items-center overflow-hidden bg-main"
+    :class="isDark ? 'dark-mode' : ''"
+  >
     <div class="shadow-xl w-main h-full mx-auto rounded-2xl bg-gray-100">
       <Nuxt />
     </div>
-    <button class="mode-toggle-btn h-6 w-12 rounded-full bg-gray-600 border-4 border-gray-800 fixed bottom-0 right-0 transform -translate-x-10 -translate-y-5"></button>
+    <button
+      class="mode-toggle-btn h-6 w-12 rounded-full bg-gray-600 border-4 border-gray-800 fixed bottom-0 right-0 transform -translate-x-10 -translate-y-5 transition-transform duration-200 ease-in-out"
+      :class="`p-0.5 ${isDark ? 'is-on' : ''}`"
+      @click="toggle"
+    ></button>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isDark: false,
+    }
+  },
+  methods: {
+    toggle() {
+      this.isDark = !this.isDark
+    },
+  },
+}
+</script>
 
 <style>
 html {
@@ -50,6 +72,10 @@ html {
   animation-iteration-count: infinite;
 }
 
+.bg-main.dark-mode::after {
+  @apply bg-black;
+}
+
 @keyframes pass {
   100% {
     filter: hue-rotate(360deg);
@@ -63,9 +89,15 @@ html {
   @apply bg-gray-900;
   @apply block;
   @apply rounded-full;
-  
-  content: "";
+
+  content: '';
   transform: scale(0.8);
   margin-left: auto;
+}
+
+.mode-toggle-btn.is-on::after {
+  transform: scale(0.8);
+  margin-left: 0;
+  margin-right: auto;
 }
 </style>
