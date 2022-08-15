@@ -1,7 +1,7 @@
 <template>
   <div class="bg-black bg-opacity-40 text-white px-5 py-10 rounded-md">
     <h1 class="text-center">Please Login</h1>
-    <form @submit="login">
+    <form @submit.prevent="login">
       <div class="form-control" @click="onFocus">
         <input type="text" required />
         <label for="email">Email</label>
@@ -10,7 +10,9 @@
         <input type="password" required />
         <label for="password">Password</label>
       </div>
+
       <button
+        type="submit"
         class="bg-white text-black p-3.5 text-xl w-full border-0 rounded-md hover:bg-gray-900 hover:text-white"
       >
         Login
@@ -39,10 +41,6 @@ export default {
       })
     },
     login() {
-      // this.$store.dispatch('login', {
-      //   email: this.email,
-      //   password: this.password,
-      // });
       this.$router.push('/dashboard')
     },
   },
