@@ -13,6 +13,15 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  /*
+   ** Customize the progress-bar color
+   */
+  loading: { color: '#F37A39', height: '5px' },
+  loadingIndicator: {
+    name: 'rotating-plane',
+    color: '#F37A39',
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/css/main.css'],
 
