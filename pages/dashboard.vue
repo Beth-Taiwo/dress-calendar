@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full shadow-xl rounded-2xl bg-gray-100">
+  <div class="w-full h-full flex flex-col shadow-xl rounded-2xl bg-gray-100">
     <header
       class="rounded-t-[24px] h-[43px] flex justify-center items-center bg-[#EFEFEF] relative"
     >
@@ -55,22 +55,83 @@
       </span>
     </header>
 
-    <section>
+    <section class="flex-1 relative">
       <!-- drawer -->
-      <div class="drawer">
+      <div class="drawer h-full absolute rounded-b-2xl">
         <input id="my-drawer" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content">
           <!-- Page content here -->
         </div>
         <div class="drawer-side">
           <label for="my-drawer" class="drawer-overlay"></label>
-          <ul
-            class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content"
+          <div
+            class="menu bg-white items-center p-4 overflow-y-auto w-80 text-sm font-black text-white"
           >
             <!-- Sidebar content here -->
-            <li><a>Sidebar Item 1</a></li>
-            <li><a>Sidebar Item 2</a></li>
-          </ul>
+            <div class="flex-1 space-y-5 pt-4">
+              <button
+                class="w-full bg-[#4A4A4A] rounded-[10px] py-2.5 text-center hover:bg-opacity-70"
+              >
+                <span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 inline mr-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4v16m8-8H4"
+                    />
+                  </svg>
+                  Add New Cloth
+                </span>
+              </button>
+              <button
+                class="w-full bg-[#4A4A4A] rounded-[10px] py-2.5 text-center hover:bg-opacity-70"
+              >
+                <span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 inline mr-3"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path
+                      fill-rule="evenodd"
+                      d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  View My Clothes
+                </span>
+              </button>
+              <button
+                class="w-full bg-[#4A4A4A] rounded-[10px] py-2.5 hover:bg-opacity-70"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 inline mr-3"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                My Accounts Settings
+              </button>
+            </div>
+            <p class="text-[#AEAEAE]">
+              made with <span class="text-red-700">&hearts;</span> by Bee
+            </p>
+          </div>
         </div>
       </div>
 
