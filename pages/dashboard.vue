@@ -69,27 +69,29 @@
           >
             <!-- Sidebar content here -->
             <div class="flex-1 space-y-5 pt-4">
-              <button
-                class="w-full bg-[#4A4A4A] rounded-[10px] py-2.5 text-center hover:bg-opacity-70"
-              >
-                <span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 inline mr-3"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M12 4v16m8-8H4"
-                    />
-                  </svg>
-                  Add New Cloth
-                </span>
-              </button>
+              <nuxt-link to="/addClothes">
+                <button
+                  class="w-full bg-[#4A4A4A] rounded-[10px] py-2.5 text-center hover:bg-opacity-70"
+                >
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 inline mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 4v16m8-8H4"
+                      />
+                    </svg>
+                    Add New Cloth
+                  </span>
+                </button>
+              </nuxt-link>
               <button
                 class="w-full bg-[#4A4A4A] rounded-[10px] py-2.5 text-center hover:bg-opacity-70"
               >
@@ -135,13 +137,14 @@
         </div>
       </div>
 
-      <Badge :text="'Monday 12th'" class="w-[102px] mx-auto" />
+      <Badge :text="'Monday 12th'" class="w-[102px] mx-auto my-4" />
     </section>
   </div>
 </template>
 
 <script>
 import Badge from '~/components/Badge.vue'
+
 export default {
   name: 'Dashboard',
   components: { Badge },
