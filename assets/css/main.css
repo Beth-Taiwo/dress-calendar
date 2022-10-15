@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=RoundedMplus1c&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=RoundedMplus1c&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,7 +10,7 @@
 }
 
 body {
-  font-family: 'Rounded Mplus 1c', 'Macondo', sans-serif;
+  font-family: 'Macondo', sans-serif;
 }
 
 /* width */
