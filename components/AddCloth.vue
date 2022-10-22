@@ -6,13 +6,6 @@
           v-if="form.image === null"
           class="flex justify-center items-center h-full w-full rounded-[10px] bg-[#c4c4c4]"
         >
-          <input
-            ref="inputRef"
-            type="file"
-            name="img"
-            class="absolute top-0 left-0 opacity-0 w-full h-full cursor-pointer"
-            @change="previewFile"
-          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5 inline"
@@ -30,10 +23,22 @@
         </div>
         <div
           v-else
-          class="bg-transparent w-full h-full border rounded-[10px] flex justify-center items-center"
+          class="bg-transparent w-full h-full overflow-hidden border rounded-[10px] flex justify-center items-center"
         >
-          <img ref="imgRef" :src="form.image" alt="an image" />
+          <img
+            ref="imgRef"
+            :src="form.image"
+            alt="an image"
+            class="object-cover h-full w-full"
+          />
         </div>
+        <input
+          ref="inputRef"
+          type="file"
+          name="img"
+          class="absolute top-0 left-0 opacity-0 w-full h-full cursor-pointer"
+          @change="previewFile"
+        />
       </div>
     </div>
     <div
@@ -52,17 +57,85 @@
       </div>
     </div>
     <div class="space-x-5 mb-3">
-      <select class="select border-[#c4c4c4] border-4 w-full max-w-[150px]">
-        <option disabled selected>Color</option>
-        <option>Han Solo</option>
-        <option>Greedo</option>
-        <option>MArgenta</option>
+      <select
+        v-model="form.color"
+        class="select border-[#c4c4c4] border-4 w-full max-w-[150px]"
+      >
+        <option value="" disabled selected>Color</option>
+        <option
+          v-for="(dColor, index) in dressColor"
+          :key="index"
+          :value="dColor"
+        >
+          {{ dColor }}
+        </option>
       </select>
-      <select class="select border-[#c4c4c4] border-4 w-full max-w-[150px]">
-        <option disabled selected>Cloth type</option>
-        <option>Han Solo</option>
-        <option>Greedo</option>
+      <select
+        v-model="form.type"
+        class="select border-[#c4c4c4] border-4 w-full max-w-[150px]"
+      >
+        <option value="" disabled selected>Cloth type</option>
+
+        <option v-for="(dType, index) in dressType" :key="index" :value="dType">
+          {{ dType }}
+        </option>
       </select>
+    </div>
+    <!-- tags -->
+    <div class="flex gap-x-2 mb-3">
+      <input
+        v-model="clothTag"
+        type="text"
+        placeholder="Add a tag. ex: casual"
+        class="input h-14 border-4 border-[#c4c4c4] flex-1"
+      />
+      <button
+        class="bg-[#1C5522] text-white rounded-[10px] w-14"
+        @click="addTag"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 inline"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="3"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M5 13l4 4L19 7"
+          />
+        </svg>
+      </button>
+    </div>
+    <div class="w-full flex flex-wrap gap-2.5 mb-3">
+      <div
+        v-for="(dTag, index) in form.clothTags"
+        :key="index"
+        class="w-40 h-9 bg-[#4A4A4A] rounded-[7px] flex items-center justify-between overflow-hidden"
+      >
+        <div class="flex-1 text-white ml-2 truncate">{{ dTag }}</div>
+        <button
+          class="w-9 h-9 bg-[#0F0F0F] text-white rounded-r-[7px] flex items-center justify-center"
+          @click="removeTag(index)"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 inline"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="4"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
     <div class="flex gap-x-3.5 text-white">
       <div
@@ -119,9 +192,15 @@ export default {
     return {
       quillContainer: null,
       toolbar: ['bold', 'italic', 'underline'],
+      dressColor: ['Margenta', 'Lilac', 'Orange', 'Pink', 'White'],
+      dressType: ['Shirt', 'Skirt', 'Trouser', 'Jean', 'Blouse'],
+      clothTag: '',
       form: {
         desp: null,
         image: null,
+        color: '',
+        type: '',
+        clothTags: [],
       },
     }
   },
@@ -141,11 +220,17 @@ export default {
     },
     previewFile(e) {
       e.preventDefault()
-
       const file = e.target.files[0]
-
       const img = URL.createObjectURL(file)
       this.form.image = img
+    },
+    addTag() {
+      this.form.clothTags.push(this.clothTag)
+    },
+    removeTag(id) {
+      this.form.clothTags = this.form.clothTags.filter(
+        (elem, index) => index !== id
+      )
     },
   },
 }
