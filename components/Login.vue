@@ -2,12 +2,14 @@
   <div class="bg-black bg-opacity-40 text-white px-5 py-10 rounded-md">
     <h1 class="text-center">Please Login</h1>
     <form @submit.prevent="login">
-      <div class="form-control" @click="onFocus">
-        <input type="text" required />
+      <div class="form-control">
+        <input type="email" required />
+        <div class="underline"></div>
         <label for="email">Email</label>
       </div>
       <div class="form-control">
         <input type="password" required />
+        <div class="underline"></div>
         <label for="password">Password</label>
       </div>
 
@@ -25,21 +27,6 @@
 export default {
   name: 'Login',
   methods: {
-    onFocus() {
-      const labels = document.querySelectorAll('.form-control label')
-      labels.forEach((label) => {
-        // eslint-disable-next-line unicorn/prefer-text-content
-        label.innerHTML = label.innerText
-          .split(' ')
-          .map(
-            (letter, i) =>
-              `<span style="transtion-delay:${i * 50}ms">${letter}</span>`
-          )
-          .join('')
-
-        // console.log(label.innerHTML)
-      })
-    },
     login() {
       this.$router.push('/dashboard')
     },
@@ -75,16 +62,31 @@ export default {
   top: 15px;
   left: 0;
   pointer-events: none;
+  transition: all 0.3s ease;
 }
-.form-control input:focus + label span,
-.form-control input:valid + label span {
+.form-control > input:focus ~ label,
+.form-control input:valid ~ label {
   color: #ffc600;
   transform: translateY(-30px);
 }
-.form-control label span {
-  display: inline-block;
-  font-size: 1.125rem;
-  min-width: 5px;
-  transition: all 0.3s ease-in-all;
+.form-control .underline {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+}
+.form-control .underline:before {
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: #ffc600;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.form-control input:focus ~ .underline:before,
+.form-control input:valid ~ .underline:before {
+  transform: scaleX(1);
 }
 </style>
