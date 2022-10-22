@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-full flex flex-col px-8 py-5 space-y-7 shadow-xl rounded-2xl bg-white"
+    class="w-full h-full flex flex-col px-8 py-5 shadow-xl rounded-2xl bg-white"
   >
     <AddCloth />
   </div>

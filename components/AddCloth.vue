@@ -1,29 +1,39 @@
 <template>
   <div>
-    <div class="w-64 mx-auto h-72">
-      <div
-        class="relative bg-[#c4c4c4] w-full h-full rounded-[10px] text-[#4A4A4AC7] text-sm font-black flex justify-center items-center"
-      >
-        <input
-          ref="imgRef"
-          type="file"
-          name="img"
-          class="absolute top-0 left-0 opacity-0 w-full h-full cursor-pointer"
-        />
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5 inline"
-          viewBox="0 0 20 20"
-          fill="currentColor"
+    <div class="w-64 h-60 mx-auto">
+      <div class="relative w-full h-full text-[#4A4A4AC7] text-sm font-black">
+        <div
+          v-if="form.image === null"
+          class="flex justify-center items-center h-full w-full rounded-[10px] bg-[#c4c4c4]"
         >
-          <path
-            fill-rule="evenodd"
-            d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-            clip-rule="evenodd"
+          <input
+            ref="inputRef"
+            type="file"
+            name="img"
+            class="absolute top-0 left-0 opacity-0 w-full h-full cursor-pointer"
+            @change="previewFile"
           />
-        </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 inline"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+              clip-rule="evenodd"
+            />
+          </svg>
 
-        <span class="ml-3.5">Add Image</span>
+          <span class="ml-3.5">Add Image</span>
+        </div>
+        <div
+          v-else
+          class="bg-transparent w-full h-full border rounded-[10px] flex justify-center items-center"
+        >
+          <img ref="imgRef" :src="form.image" alt="an image" />
+        </div>
       </div>
     </div>
     <div
@@ -40,6 +50,19 @@
         <button class="ql-italic"></button>
         <button class="ql-underline"></button>
       </div>
+    </div>
+    <div class="space-x-5 mb-3">
+      <select class="select border-[#c4c4c4] border-4 w-full max-w-[150px]">
+        <option disabled selected>Color</option>
+        <option>Han Solo</option>
+        <option>Greedo</option>
+        <option>MArgenta</option>
+      </select>
+      <select class="select border-[#c4c4c4] border-4 w-full max-w-[150px]">
+        <option disabled selected>Cloth type</option>
+        <option>Han Solo</option>
+        <option>Greedo</option>
+      </select>
     </div>
     <div class="flex gap-x-3.5 text-white">
       <div
@@ -98,6 +121,7 @@ export default {
       toolbar: ['bold', 'italic', 'underline'],
       form: {
         desp: null,
+        image: null,
       },
     }
   },
@@ -114,6 +138,14 @@ export default {
   methods: {
     AddToCollections() {
       this.form.desp = JSON.stringify(this.quillContainer.getContents())
+    },
+    previewFile(e) {
+      e.preventDefault()
+
+      const file = e.target.files[0]
+
+      const img = URL.createObjectURL(file)
+      this.form.image = img
     },
   },
 }
