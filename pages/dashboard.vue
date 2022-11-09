@@ -143,12 +143,21 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Badge from '~/components/Badge.vue'
 
 export default {
   name: 'Dashboard',
   components: { Badge },
   layout: 'main',
+  data() {
+    return { clothCollections: null }
+  },
+  computed: {
+    ...mapGetters({
+      getCollections: 'collections/getClothes',
+    }),
+  },
 }
 </script>
 
