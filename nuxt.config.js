@@ -46,7 +46,15 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/axios'],
+
+  /*
+   ** Axios module configuration
+   ** See https://axios.nuxtjs.org/options
+   */
+  // axios: {
+  //   baseURL: process.env.baseURL,
+  // },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
